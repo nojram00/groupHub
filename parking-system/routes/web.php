@@ -14,14 +14,16 @@ use App\Http\Controllers\mainController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 
 // Route::get('/login', function(){
 //     return view('login');
 // });
 
+Route::get('/', [mainController::class, 'homePage']);
 Route::get('/login', [mainController::class, 'loginPage']);
-
+Route::get('/register', [mainController::class, 'registerPage']);
 
