@@ -17,4 +17,8 @@ class mainController extends Controller
     public function registerPage(){
         return view('register');
     }
+
+    public function index(){
+        return view('index');
+    }
 }

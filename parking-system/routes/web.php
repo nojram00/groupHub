@@ -23,6 +23,7 @@ use App\Http\Controllers\mainController;
 //     return view('login');
 // });
 
-Route::get('/', [mainController::class, 'homePage']);
+Route::get('/', [mainController::class, 'index']);
 Route::get('/login', [mainController::class, 'loginPage']);
 Route::get('/register', [mainController::class, 'registerPage']);
+Route::get('/home', [mainController::class, 'homePage']);
