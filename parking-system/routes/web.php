@@ -26,4 +26,3 @@ use App\Http\Controllers\mainController;
 Route::get('/', [mainController::class, 'homePage']);
 Route::get('/login', [mainController::class, 'loginPage']);
 Route::get('/register', [mainController::class, 'registerPage']);
-
