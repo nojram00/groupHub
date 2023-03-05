@@ -8,7 +8,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    <div class="min-h-screen py-40" style="background-image: linear-gradient(115deg, rgb(57, 57, 199), rgba(207, 184, 184, 0.933))">
+    <div class="min-h-screen py-40" style="background-image: url(images/bg.png)">
         <h1 class="text-3xl font-bold text-center">Welcome!</h1>
     </div>
 </body>
