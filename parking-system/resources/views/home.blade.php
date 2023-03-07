@@ -1,3 +1,7 @@
+<?php
+    $name = auth()->user()->name;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +11,22 @@
     @vite('resources/css/app.css')
     <title>Document</title>
 </head>
+
 <body>
     <!--
         Homepage/Landing Page:
     -->
     <div class="min-h-screen py-40" style="background-image: linear-gradient(115deg, rgb(57, 57, 199), rgba(207, 184, 184, 0.933))">
-        <h1 class="text-3xl font-bold text-center">Home</h1>
+        <h1 class="text-3xl font-bold text-center">Hello {{$name}}!!</h1>
+
+        
+
+        <form action="logout" method="POST">
+            @csrf
+            <button type="submit">logout</button>
+        </form>
     </div>
+
+    
 </body>
 </html>

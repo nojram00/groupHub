@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\loginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\mainController;
+use App\Http\Controllers\registrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +25,17 @@ use App\Http\Controllers\mainController;
 //     return view('login');
 // });
 
-Route::get('/', [mainController::class, 'loginPage']);
+Route::get('/login', [mainController::class, 'loginPage'])->name('login');
 Route::get('/index', [mainController::class, 'index']);
 Route::get('/register', [mainController::class, 'registerPage']);
-Route::get('/home', [mainController::class, 'homePage']);
+
+
+Route::get('/', [mainController::class, 'homePage'])->middleware('auth');
+
+Route::post('/checkaccount', [mainController::class, 'accountChecker']);
+Route::post('/registered', [registrationController::class, 'registerUser']);
+Route::post('/signedin', [loginController::class, 'loginUser']);
+Route::post('/logout', [loginController::class, 'logoutUser']);
+Route::get('/signup', function(){
+    return view('reg');
+});

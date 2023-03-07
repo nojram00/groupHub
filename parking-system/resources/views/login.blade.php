@@ -26,11 +26,24 @@
             <div class=" w-1/3 rounded-xl mx-auto shadow-lg overflow-hidden flex justify-center" style="background-color: rgba(53, 127, 248, 0.5)">
                 {{-- login --}}
                 <div class="w-1/2 py-3 px-4">
-                    <form action="home" method="GET">
+                    <form action="signedin" method="POST">
+                        @csrf
                         <div class="flex flex-col my-2">
-                            <input type="text" placeholder="Username" class="border border-blue-900 py-1 px-2 rounded-xl my-1">
-                            <input type="password" placeholder="Password" class="border border-blue-900 py-1 px-2 rounded-xl my-1">
+                            <input type="text" placeholder="Username/Email" name="email" class="border border-blue-900 py-1 px-2 rounded-xl my-1">
+                                @error('email')
+                                    <p class=" text-red-600 text-xs  mt-2">
+                                        {{$message}}
+                                    </p>
+                                @enderror
+                            <input type="password" placeholder="Password" name="password" class="border border-blue-900 py-1 px-2 rounded-xl my-1">
+                                @error('password')
+                                    <p class=" text-red-600 text-xs  mt-2">
+                                        {{$message}}
+                                    </p>
+                                @enderror
                         </div>
+                        
+
                         <div class="flex flex-row justify-center">
                             <a href="" class="text-white hover:text-black underline"><h1 class="text-lg font-medium mb-4">Forgot Password?</h1></a>
                         </div>

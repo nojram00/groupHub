@@ -31,46 +31,55 @@
             
             <div class="container mx-auto flex justify-center">
                 <div class=" bg-blue-900 w-1/2 px-5 flex justify-center rounded-xl">
-                    <form action="" method="">
-                        {{-- @csrf --}}
-                    {{-- Name --}}
-                        <div class="flex flex-row py-4 self-center">
-                            <h1 class=" text-xl text-white font-semibold px-3">Name: </h1>
-                            <input type="text" placeholder="Name" class=" px-1 py-1 rounded-md border border-black w-3/4">
-                        </div>
-                    {{-- Address --}}
-                        <div class="flex flex-row py-3 self-center">
-                            <h1 class=" text-xl text-white font-semibold px-3">Address: </h1>
-                            <input type="text" placeholder="Address" class=" px-1 py-1 rounded-md border border-black w-3/4">
-                        </div>
-                    {{-- Age --}}
-                        <div class="flex flex-row py-3 self-center space-x-1">
-                            <h1 class=" text-xl text-white font-semibold px-3">Age: </h1>
-                            <input type="text" placeholder="Age" class=" px-1 py-1 rounded-md border border-black w-20">
-                            <div class="flex content-between justify-center space-x-2">
-                                <input type="radio" name="Gender" id=""> <h1 class="text-white font-medium self-center">Male</h1>
-                                <input type="radio" name="Gender" id=""> <h1 class="text-white font-medium self-center">Female</h1>
-                            </div>
-                        </div>
-                    {{-- Birthday --}}
-                        <div class="flex flex-row py-3 self-center">
-                            <h1 class=" text-xl text-white font-semibold px-3">Birthday: </h1>
-                            <input type="date" class=" px-1 py-1 rounded-md border border-black w-3/4">
-                        </div>
-                    {{-- Email address --}}
-                        <div class="flex flex-row py-3 self-center">
-                            <h1 class=" text-xl text-white font-semibold px-3">Email: </h1>
-                            <input type="text" placeholder="Email" class=" px-1 py-1 rounded-md border border-black w-3/4">
-                        </div>
-                    {{-- Password --}}
-                        <div class="flex flex-row py-3 self-center">
-                            <h1 class=" text-xl text-white font-semibold px-3">Password: </h1>
-                            <input type="password" placeholder="Password" class=" px-1 py-1 rounded-md border border-black w-3/4">
-                        </div>
-                    {{-- Continue Button --}}
-                        <div class="flex flex-row py-3 content-center justify-center">
-                            <button class="bg-blue-500 text-white px-7 py-3 rounded-2xl mx-1 my-1 hover:bg-black hover:text-white shadow-black shadow-md">Continue</button>
-                        </div>
+                    <form action="registered" method="post" class="flex flex-col py-3 space-y-4">
+                      @csrf
+
+                      <div class="flex flex-row space-x-2 leading-4">
+                        <label for="name"><h1 class=" text-xl text-white font-semibold py-3 text-left">Name: </h1></label>
+                        <input type="text" placeholder="Name" name="name" class=" px-1 py-1 rounded-md border border-black w-3/4 h-3/4" id="name" value={{old('name')}}>
+                      </div>
+
+                        @error('name')
+                            <p class=" text-red-600 text-xs  mt-2">
+                                {{$message}}
+                            </p>
+                        @enderror
+                      
+                      <div class="flex flex-row space-x-2 leading-4">
+                        <label for="email"><h1 class=" text-xl text-white font-semibold py-3 text-left">Email: </h1></label>
+                        <input type="text" placeholder="Email Address" name="email" class=" px-1 py-1 rounded-md border border-black w-3/4 h-3/4" id="email" value={{old('email')}}>
+                      </div>
+
+                        @error('email')
+                            <p class=" text-red-600 text-xs  mt-2">
+                                {{$message}}
+                            </p>
+                        @enderror
+
+                      <div class="flex flex-row space-x-2 leading-4">
+                        <label for="password"><h1 class=" text-xl text-white font-semibold py-3 text-left">Password: </h1></label>
+                        <input type="password" placeholder="Password" name="password" class=" px-1 py-1 rounded-md border border-black w-3/4 h-3/4" id="password">
+                      </div>
+
+                        @error('password')
+                            <p class=" text-red-600 text-xs  mt-2">
+                                {{$message}}
+                            </p>
+                        @enderror
+
+                      <div class="flex flex-row space-x-2">
+                        <label for="password_confirmation"><h1 class=" text-xl text-white font-semibold py-3 text-left"> Confirm: </h1></label>
+                        <input type="password" placeholder="Password" name="password_confirmation" class=" px-1 py-1 rounded-md border border-black w-3/4 h-3/4" id="password_confirmation">
+                      </div>
+
+                        @error('password_confirmation')
+                            <p class=" text-red-600 text-xs  mt-2">
+                                {{$message}}
+                            </p>
+                        @enderror
+
+                      <button type="submit" class="bg-blue-500 text-white px-7 py-3 rounded-2xl mx-1 my-1 hover:bg-black hover:text-white shadow-black shadow-md">Continue</button>
+
                     </form>
                 </div>
             </div>
@@ -79,7 +88,6 @@
                 <p class=" italic text-white font-medium">Already have an account? </p> <a href="/" class="text-black font-medium hover:text-white underline"><p>Login</p></a>
             </div>
         </main>
-        
     </div>
 </body>
 </html>

@@ -1,3 +1,4 @@
+@dd(auth()->user())
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +9,10 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    <div class="min-h-screen py-40" style="background-image: url(images/bg.png)">
+
+    {{-- <div class="min-h-screen py-40" style="background-image: url(images/bg.png)">
         <h1 class="text-3xl font-bold text-center">Welcome!</h1>
-    </div>
+
+    </div> --}}
 </body>
 </html>
