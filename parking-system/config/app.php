@@ -195,6 +195,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Ixudra\Curl\CurlServiceProvider::class,
+
     ],
 
     /*
@@ -210,6 +212,9 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+
+        'Curl'          => Ixudra\Curl\Facades\Curl::class,
+
     ])->toArray(),
 
 ];

@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#parking:hover #parking-floors{
+    display: block;
+}
+#parking-slot:hover #parking-info{
+    color: rgb(255, 255, 255);
+}
+#hover:hover div{
+    visibility: visible;
+    display: flex;
+}

@@ -18,11 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            // $table->integer('age');
-            // $table->string('address');
             $table->string('password');
-            // $table->string('gender');
-            // $table->date('birthday');
+            $table->string('role')->default('user')->array('admin','user');
             $table->rememberToken();
             $table->timestamps();
         });
