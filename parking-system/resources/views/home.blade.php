@@ -1,18 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite('resources/css/app.css')
-    <title>Document</title>
-</head>
-<body>
-    <!--
-        Homepage/Landing Page:
-    -->
-    <div class="min-h-screen py-40" style="background-image: linear-gradient(115deg, rgb(57, 57, 199), rgba(207, 184, 184, 0.933))">
-        <h1 class="text-3xl font-bold text-center">Home</h1>
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    {{ __('You are logged in!') }}
+                </div>
+            </div>
+        </div>
     </div>
-</body>
-</html>
+</div>
+@endsection
