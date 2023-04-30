@@ -22,6 +22,10 @@
                 </div>
             </div>
 
+            <div class="flex flex-row">
+                <a href="/admin/notifications"><h1 class="text-blue-500 rounded-lg bg-white w-max p-5 hover:bg-blue-300 hover:text-black">Notifications</h1></a>
+            </div>
+
             <div>
                 <form action="/logout" method="POST" class="flex flex-row">
                     @csrf

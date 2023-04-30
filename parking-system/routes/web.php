@@ -4,6 +4,7 @@ use App\Http\Controllers\adminController;
 use App\Http\Controllers\loginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\mainController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\parkingFloorController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\registrationController;
@@ -82,7 +83,7 @@ Route::middleware(['auth', 'user-access:user'])->group(function(){
 
     //Dashboard(User):
     Route::get('/', [mainController::class, 'homePage']);
-    Route::get('/notifications', [mainController::class, 'notifications']);
+    Route::get('/notifications', [NotificationController::class, 'displayNotifications']);
     Route::get('/settings', [mainController::class, 'settingsPage']);
     Route::get('/logoutPre', [loginController::class, 'logoutUser']);
 
@@ -94,6 +95,9 @@ Route::middleware(['auth', 'user-access:user'])->group(function(){
 
     //Back. Just back...
     Route::get('/back/{parkingFloor}', [parkingFloorController::class, 'backToParking']);
+
+    //Delete Notifs
+    Route::delete('delete/{notifications}', [NotificationController::class, 'deleteNotification']);
 });
 
 //for Admin:
@@ -102,6 +106,9 @@ Route::middleware(['auth', 'user-access:admin'])->group(function(){
     Route::get('/admin-dashboard', [adminController::class, 'adminDashboard']);
     Route::get('/admin/parkingfloors/{level}', [adminController::class, 'adminParkingFloors']);
     Route::get('/updateFloor/{floorLevel}/{id}',[adminController::class, 'updateFloor']);
+    Route::get('/admin/notifications', [NotificationController::class, 'adminNotification']);
+
+    Route::post('/notifs',[NotificationController::class, 'addNotification']);
 });
 
 

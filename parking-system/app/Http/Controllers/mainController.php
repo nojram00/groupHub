@@ -26,10 +26,6 @@ class mainController extends Controller
         return view('register');
     }
 
-    public function notifications(){
-        return view('.dashboard.notifications');
-    }
-
     public function settingsPage(){
         return view('.dashboard.settings');
     }
